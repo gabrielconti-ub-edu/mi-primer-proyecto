@@ -1,0 +1,37 @@
+<p>
+# Listar clientes
+<p>
+curl http://localhost/IngenieriaDeSoftwareIFTS18/Ej13_API-REST_BackEnd_PHPconMySQL/index.php/clientes
+<p>
+
+<p>
+# Ver cliente 1
+<p>
+curl http://localhost/IngenieriaDeSoftwareIFTS18/Ej13_API-REST_BackEnd_PHPconMySQL/index.php/clientes/1
+<p>
+
+<p>
+# Crear cliente
+<p>
+curl -X POST -H "Content-Type: application/json" \
+<p>
+     -d '{"nombre":"Carlos","domicilio":"San Martín 500","mail":"carlos@test.com","telefono":"123456"}' \
+<p>
+     http://localhost/IngenieriaDeSoftwareIFTS18/Ej13_API-REST_BackEnd_PHPconMySQL/index.php/clientes
+<p>
+
+<p>
+# Actualizar cliente 1
+<p>
+curl -X PUT -H "Content-Type: application/json" \
+<p>
+     -d '{"nombre":"Carlos Modificado","domicilio":"Belgrano 100","mail":"mod@test.com","telefono":"555555"}' \
+<p>
+     http://localhost/IngenieriaDeSoftwareIFTS18/Ej13_API-REST_BackEnd_PHPconMySQL/index.php/clientes/1
+<p>
+
+<p>
+# Eliminar cliente 1
+<p>
+curl -X DELETE http://localhost/IngenieriaDeSoftwareIFTS18/Ej13_API-REST_BackEnd_PHPconMySQL/index.php/clientes/1
+<p>

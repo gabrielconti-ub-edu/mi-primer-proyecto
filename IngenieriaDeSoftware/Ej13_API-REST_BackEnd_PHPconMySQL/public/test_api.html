@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test API Clientes</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    button { margin: 5px; }
+    pre { background: #f4f4f4; padding: 10px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Test de API REST Clientes</h1>
+  <button onclick="getClientes()">Ver todos</button>
+  <button onclick="crearCliente()">Crear cliente</button>
+  <button onclick="actualizarCliente()">Actualizar cliente (ID=1)</button>
+  <button onclick="borrarCliente()">Eliminar cliente (ID=1)</button>
+  <pre id="output"></pre>
+
+  <script>
+    const API = "../index.php/clientes";
+
+    function getClientes() {
+      fetch(API)
+        .then(r => r.json())
+        .then(data => mostrar(data));
+    }
+
+    function crearCliente() {
+      fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: "Juan Pérez",
+          domicilio: "Av. Corrientes 123",
+          mail: "juan@test.com",
+          telefono: "1122334455"
+        })
+      })
+      .then(r => r.json())
+      .then(data => mostrar(data));
+    }
+
+    function actualizarCliente() {
+      fetch(API + "/1", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: "Juan Actualizado",
+          domicilio: "Nueva dirección",
+          mail: "nuevo@test.com",
+          telefono: "999999999"
+        })
+      })
+      .then(r => r.json())
+      .then(data => mostrar(data));
+    }
+
+    function borrarCliente() {
+      fetch(API + "/1", { method: "DELETE" })
+        .then(r => r.json())
+        .then(data => mostrar(data));
+    }
+
+    function mostrar(data) {
+      document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>

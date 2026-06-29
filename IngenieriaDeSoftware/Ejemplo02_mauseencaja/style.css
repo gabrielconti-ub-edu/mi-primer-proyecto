@@ -1,0 +1,65 @@
+/* Reset básico de márgenes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Contenedor en cuadrícula adaptativa */
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Estilo común para las ocho divisiones */
+.caja {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Estilo propio para la division de la caja 9 */
+.caja9 {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+	background-color: #FF0000;
+}
+
+/* Efecto visual al pasar el mouse */
+.caja:hover {
+    transform: scale(1.03);
+}
+/* Efecto visual al pasar el mouse sobre la caja 9 */
+.caja9:hover {
+    transform: scale(1.3);
+}
