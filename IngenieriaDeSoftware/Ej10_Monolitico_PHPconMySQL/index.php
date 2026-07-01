@@ -3,12 +3,25 @@
 // CONFIGURACIÓN DE CONEXIÓN A BASE DE DATOS
 // =============================================
 
+/*
+//---------------------------------------------
+// UniServer se conecta con estos datos.
 //------- VARIABLES para MySQL en LOCAL -------
 $host = "localhost";
 $user = "root";
 $pass = "root";
 $dbname = "crud_clientes";
 
+$conn = mysqli_connect($host, $user, $pass, $dbname);
+
+if (!$conn) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+
+*/
+
+//---------------------------------------------------
+// RENDER se conecta con estos datos.
 //------- VARIABLES para POSTGRESQL en RENDER -------
 $host   = "dpg-d91ipoa8qa3s73an1b2g-a";
 $dbname = "crud_clientes_sndh";
@@ -16,11 +29,12 @@ $user   = "render_root";
 $pass   = "4er3LfxF1g98m6SAlmrFN1DOkoaTcVZE";
 $port   = "5432";
 
-
-$conn = mysqli_connect($host, $user, $pass, $dbname);
-
-if (!$conn) {
-    die("Error de conexión: " . mysqli_connect_error());
+try {
+    $dsn = "pgsql:host=$host;port=$port;dbname=$db;";
+    $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    // Tu conexión está lista
+} catch (PDOException $e) {
+    echo "Error de conexión: " . $e->getMessage();
 }
 
 // =============================================
