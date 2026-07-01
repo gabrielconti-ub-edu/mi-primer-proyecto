@@ -8,14 +8,14 @@ $user = getenv('DB_USER');
 $pass = getenv('DB_PASSWORD');
 $port = getenv('DB_PORT') ?: "5432";
 
-echo "------- VARIABLES DE ENTORNO -------"
+echo "------- VARIABLES DE ENTORNO -------";
 echo "getenv('DB_HOST')     = " . getenv('DB_HOST')     ;
 echo "getenv('DB_DATABASE') = " . getenv('DB_DATABASE') ;
 echo "getenv('DB_USER')     = " . getenv('DB_USER')     ;
 echo "getenv('DB_PASSWORD') = " . getenv('DB_PASSWORD') ;
 echo "getenv('DB_PORT')     = " . getenv('DB_PORT')     ;
 
-echo "------- VARIABLES DE PROGRAMA -------"
+echo "------- VARIABLES DE PROGRAMA -------";
 echo "$host = " . $host ;
 echo "$db   = " . $db   ;
 echo "$user = " . $user ;
