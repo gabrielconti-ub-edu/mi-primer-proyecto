@@ -82,7 +82,7 @@ if ($accion == 'seleccionar') {
     // $cliente_editar = mysqli_fetch_assoc($resultado);
 
     $resultado = $pdo->query("SELECT * FROM clientes WHERE CLIENTE_ID=$id"); // $resultado ahora es un objeto PDOStatement
-    $cliente_editar = $resultado->fetch(PDO::FETCH_ASSOC)
+    $cliente_editar = $resultado->fetch(PDO::FETCH_ASSOC);
 
 }
 
