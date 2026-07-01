@@ -50,13 +50,15 @@ if ($accion == 'agregar') {
 
     $sql = "INSERT INTO clientes (NOMBRE_CLI, DOMICILIO, MAIL, TELEFONO) 
             VALUES ('$nombre', '$domicilio', '$mail', '$telefono')";
-    mysqli_query($conn, $sql);
+    // mysqli_query($conn, $sql);
+	$pdo->query($sql); // $resultado ahora es un objeto PDOStatement
 }
 
 if ($accion == 'eliminar') {
     $id = $_POST['id'];
     $sql = "DELETE FROM clientes WHERE CLIENTE_ID=$id";
-    mysqli_query($conn, $sql);
+    // mysqli_query($conn, $sql);
+	$pdo->query($sql); // $resultado ahora es un objeto PDOStatement
 }
 
 if ($accion == 'editar') {
@@ -69,20 +71,26 @@ if ($accion == 'editar') {
     $sql = "UPDATE clientes 
             SET NOMBRE_CLI='$nombre', DOMICILIO='$domicilio', MAIL='$mail', TELEFONO='$telefono'
             WHERE CLIENTE_ID=$id";
-    mysqli_query($conn, $sql);
+    // mysqli_query($conn, $sql);
+	$pdo->query($sql); // $resultado ahora es un objeto PDOStatement
 }
 
 $cliente_editar = null;
 if ($accion == 'seleccionar') {
     $id = $_POST['id'];
-    $resultado = mysqli_query($conn, "SELECT * FROM clientes WHERE CLIENTE_ID=$id");
-    $cliente_editar = mysqli_fetch_assoc($resultado);
+    // $resultado = mysqli_query($conn, "SELECT * FROM clientes WHERE CLIENTE_ID=$id");
+    // $cliente_editar = mysqli_fetch_assoc($resultado);
+
+    $resultado = $pdo->query("SELECT * FROM clientes WHERE CLIENTE_ID=$id"); // $resultado ahora es un objeto PDOStatement
+    $cliente_editar = $resultado->fetch(PDO::FETCH_ASSOC)
+
 }
 
 // =============================================
 // CONSULTA DE LISTADO DE CLIENTES
 // =============================================
-$resultado = mysqli_query($conn, "SELECT * FROM clientes ORDER BY CLIENTE_ID ASC");
+// $resultado = mysqli_query($conn, "SELECT * FROM clientes ORDER BY CLIENTE_ID ASC");
+$resultado = $pdo->query("SELECT * FROM clientes ORDER BY CLIENTE_ID ASC"); // $resultado ahora es un objeto PDOStatement
 ?>
 
 <!DOCTYPE html>
@@ -193,7 +201,9 @@ $resultado = mysqli_query($conn, "SELECT * FROM clientes ORDER BY CLIENTE_ID ASC
         <th>Acciones</th>
     </tr>
 
-    <?php while ($fila = mysqli_fetch_assoc($resultado)): ?>
+    <?php // while ($fila = mysqli_fetch_assoc($resultado)): ?>
+    <?php while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)): ?>
+    
     <tr>
         <td><?php echo $fila['CLIENTE_ID']; ?></td>
         <td><?php echo $fila['NOMBRE_CLI']; ?></td>
