@@ -2,10 +2,20 @@
 // =============================================
 // CONFIGURACIÓN DE CONEXIÓN A BASE DE DATOS
 // =============================================
+
+//------- VARIABLES para MySQL en LOCAL -------
 $host = "localhost";
 $user = "root";
 $pass = "root";
 $dbname = "crud_clientes";
+
+//------- VARIABLES para POSTGRESQL en RENDER -------
+$host   = "dpg-d91ipoa8qa3s73an1b2g-a";
+$dbname = "crud_clientes_sndh";
+$user   = "render_root";
+$pass   = "4er3LfxF1g98m6SAlmrFN1DOkoaTcVZE";
+$port   = "5432";
+
 
 $conn = mysqli_connect($host, $user, $pass, $dbname);
 
