@@ -30,7 +30,7 @@ $pass   = "4er3LfxF1g98m6SAlmrFN1DOkoaTcVZE";
 $port   = "5432";
 
 try {
-    $dsn = "pgsql:host=$host;port=$port;dbname=$db;";
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;";
     $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     // Tu conexión está lista
 } catch (PDOException $e) {
