@@ -22,6 +22,12 @@ echo "$user = " . $user ;
 echo "$pass = " . $pass ;
 echo "$port = " . $port ;
 
+$host = "dpg-d91ipoa8qa3s73an1b2g-a";
+$db   = "crud_clientes_sndh";
+$user = "render_root";
+$pass = "4er3LfxF1g98m6SAlmrFN1DOkoaTcVZE";
+$port = "5432";
+
 
 try {
     $dsn = "pgsql:host=$host;port=$port;dbname=$db;";
