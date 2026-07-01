@@ -33,6 +33,7 @@ try {
     $dsn = "pgsql:host=$host;port=$port;dbname=$db;";
     $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     // Tu conexión está lista
+    echo "\nTu conexión está lista";
 } catch (PDOException $e) {
     echo "Error de conexión: " . $e->getMessage();
 }
